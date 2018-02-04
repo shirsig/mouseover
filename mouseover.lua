@@ -28,7 +28,7 @@ do
 	local pass = function() end
 	local orig = UseAction
 	function UseAction(unit, clicked, onself)
-		if mouseover then
+		if mouseover and not strfind(mouseover, 'target') then
 			local _PlaySound = PlaySound
 			local target = UnitName'target'
 			PlaySound = pass
