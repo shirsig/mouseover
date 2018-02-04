@@ -1,0 +1,5 @@
+## Interface: 11200
+## Author: shirsig
+## Title: mouseover
+## Notes: Enables mouseover actions on unitframes
+mouseover.lua
