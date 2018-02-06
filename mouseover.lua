@@ -28,7 +28,8 @@ do
 	local pass = function() end
 	local orig = UseAction
 	function UseAction(unit, clicked, onself)
-		if mouseover and not strfind(mouseover, 'target') then
+		local mouseover = mouseover
+		if mouseover and mouseover ~= 'target' then
 			local _PlaySound = PlaySound
 			local target = UnitName'target'
 			PlaySound = pass
@@ -40,9 +41,7 @@ do
 				orig(unit, clicked, onself)
 				SetCVar('autoSelfCast', autoSelfCast)
 			end
-			if SpellCanTargetUnit(mouseover) then
-				SpellTargetUnit(mouseover)
-			end
+			SpellTargetUnit(mouseover)
 			if target then
 				PlaySound = pass
 				TargetLastTarget()
